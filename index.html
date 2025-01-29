@@ -104,6 +104,7 @@
         width: 100%;
         font-family: "Poppins", sans-serif;
         padding: 5px 5px;
+        border-bottom: 1px solid rgb(59, 58, 58);
       }
 
       .fa-pen {
@@ -126,7 +127,7 @@
 
       ::placeholder {
         font-style: italic;
-        color: rgba(0, 0, 0, 0.875);
+        color: rgba(0, 0, 0, 0.438);
       }
 
 
@@ -165,7 +166,7 @@
 
       ::placeholder {
         font-style: italic;
-        color: rgba(0, 0, 0, 0.875);
+        color: rgba(0, 0, 0, 0.438);
         font-size: 20px;
       }
 
@@ -188,6 +189,7 @@
         font-family: "Poppins", sans-serif;
         padding: 3px 5px;
         font-size: 15px;
+        border-bottom: 1px solid rgb(59, 58, 58);
       }
       }
 
@@ -223,7 +225,7 @@
   //   the prompt function returns whatever the user types, you can see by logging it
 
   function editValue(i) {
-    let promptValue = prompt("enter edit value here", database[i]);
+    let promptValue = prompt("Enter task here", database[i]);
 
     if (promptValue.trim() === "" || promptValue === "type here") {
       alert("invalid edit value");
