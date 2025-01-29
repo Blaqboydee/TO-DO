@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e5143482e1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        background-color: black;
+        color: white;
+        width: 30%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        gap: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      .container h2 {
+        background-color: rgb(84, 81, 81);
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+        font-family: "Poppins", sans-serif;
+        /* font-style: italic; */
+        margin-bottom: 20px;
+      }
+
+      input {
+        height: 30px;
+        border: none;
+        outline: 0;
+        padding: 3px;
+        width: 60%;
+        font-family: "Poppins", serif;
+      }
+
+      #add {
+        background-color: rgb(31, 239, 8);
+        color: black;
+        border: none;
+        padding: 5px;
+        width: 100px;
+        border-radius: 10px;
+        border: 2px solid black;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
+
+     
+
+      #output {
+        max-height: 50vh;
+        width: 80%;
+        background-color: white;
+        overflow-y: auto;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: "Poppins", sans-serif;
+      }
+
+
+      #output::-webkit-scrollbar{
+        display: none;
+      }
+      
+      span button {
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+
+      .answer {
+        /* background-color: red; */
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: "Poppins", sans-serif;
+        padding: 5px 5px;
+      }
+
+      .fa-pen {
+        color: black;
+        border: none;
+        background: none;
+        font-size: 15px;
+        /* background-color: white; */
+        border: 1px solid white;
+      }
+
+      .fa-trash {
+        color: rgb(251, 5, 5);
+        border: none;
+        /* background: none; */
+        font-size: 15px;
+        /* background-color: white; */
+        border: 1px solid white;
+      }
+
+      ::placeholder {
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.875);
+      }
+
+
+
+
+
+
+
+
+
+
+
+      
+      @media (max-width: 1024px) {
+        .container {
+        background-color: black;
+        color: white;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      input {
+        height: 30px;
+        border: none;
+        outline: 0;
+        padding: 3px;
+        width: 80%;
+        font-family: "Poppins", serif;
+        border-radius: 7px;
+      }
+
+      .container h2 {
+        background-color: rgb(84, 81, 81);
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+        font-family: "Poppins", sans-serif;
+        /* font-style: italic; */
+        margin-bottom: 20px;
+        font-size: 15px;
+      }
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>TODO LIST</h2>
+      <input type="text" id="todo" placeholder="Input task.." />
+      <button id="add" onclick="addTodo()">Add</button>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
+<script>
+  let myInput = document.getElementById("todo");
+  let database = [];
+
+  function addTodo() {
+    let input = myInput.value;
+    if (input.trim() == "") {
+      alert("Input a task to do");
+    } else {
+      database.push(input.trim());
+      //   console.log(database);
+      add.textContent = "+";
+      myInput.value = "";
+      display();
+    }
+  }
+
+  //   the prompt function returns whatever the user types, you can see by logging it
+
+  function editValue(i) {
+    let promptValue = prompt("enter edit value here", database[i]);
+
+    if (promptValue.trim() === "" || promptValue === "type here") {
+      alert("invalid edit value");
+    } else {
+      database.splice(i, 1, promptValue);
+      console.log(database);
+      display();
+    }
+  }
+
+  function deleteValue(i) {
+    database.splice(i, 1);
+    display();
+    add.textContent = "Add";
+  }
+
+  function display() {
+    output.innerHTML = "";
+    for (let index = 0; index < database.length; index++) {
+      output.innerHTML += `<div class="answer"> ${database[index]} <span><button class="edit" title="Edit" onclick= editValue(${index})><i class="fa-solid fa-pen"></i></button> <button class="delete" title="Delete" onclick= deleteValue(${index})><i class="fa-solid fa-trash"></i></button></span></div>  `;
+      myInput.value = "";
+    }
+  }
+</script>
