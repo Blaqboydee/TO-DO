@@ -34,10 +34,11 @@
         height: 80vh;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
         gap: 10px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 15px;
+
       }
 
       .container h2 {
@@ -46,8 +47,9 @@
         width: 100%;
         padding: 5px;
         font-family: "Poppins", sans-serif;
-        /* font-style: italic; */
         margin-bottom: 20px;
+        border-radius: 15px 15px 0 0;
+
       }
 
       input {
@@ -55,7 +57,7 @@
         border: none;
         outline: 0;
         padding: 3px;
-        width: 60%;
+        width: 70%;
         font-family: "Poppins", serif;
       }
 
@@ -83,6 +85,8 @@
         flex-direction: column;
         gap: 10px;
         font-family: "Poppins", sans-serif;
+        padding: 10px;
+        border-radius: 15px;
       }
 
 
@@ -98,7 +102,6 @@
       }
 
       .answer {
-        /* background-color: red; */
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -112,16 +115,13 @@
         border: none;
         background: none;
         font-size: 15px;
-        /* background-color: white; */
         border: 1px solid white;
       }
 
       .fa-trash {
         color: rgb(251, 5, 5);
         border: none;
-        /* background: none; */
         font-size: 15px;
-        /* background-color: white; */
         border: 1px solid white;
       }
 
@@ -176,13 +176,11 @@
         width: 100%;
         padding: 5px;
         font-family: "Poppins", sans-serif;
-        /* font-style: italic; */
         margin-bottom: 20px;
         font-size: 15px;
       }
 
       .answer {
-        /* background-color: red; */
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -195,6 +193,8 @@
 
 
     </style>
+
+    
   </head>
   <body>
     <div class="container">
@@ -222,7 +222,7 @@
     }
   }
 
-  //   the prompt function returns whatever the user types, you can see by logging it
+  
 
   function editValue(i) {
     let promptValue = prompt("Enter task here", database[i]);
