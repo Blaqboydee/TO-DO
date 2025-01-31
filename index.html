@@ -49,7 +49,6 @@
         font-family: "Poppins", sans-serif;
         margin-bottom: 20px;
         border-radius: 15px 15px 0 0;
-
       }
 
       input {
@@ -141,7 +140,7 @@
 
 
       
-      @media (max-width: 1024px) {
+      @media (max-width: 600px) {
         .container {
         background-color: black;
         color: white;
@@ -151,10 +150,22 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        border-radius: 0;
+      }
+
+      .container h2 {
+        background-color: rgb(84, 81, 81);
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 20px;
+        border-radius: 0;
+        height: 40px;
       }
 
       input {
-        height: 40px;
+        height: 30px;
         border: none;
         outline: 0;
         padding: 3px;
@@ -188,6 +199,21 @@
         padding: 3px 5px;
         font-size: 15px;
         border-bottom: 1px solid rgb(59, 58, 58);
+      }
+
+
+      #output {
+        max-height: 50vh;
+        width: 80%;
+        background-color: white;
+        overflow-y: auto;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: "Poppins", sans-serif;
+        padding: 10px;
+        /* border-radius: 15px; */
       }
       }
 
